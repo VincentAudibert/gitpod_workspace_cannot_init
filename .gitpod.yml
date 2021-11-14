@@ -1,0 +1,38 @@
+# Define the custom docker file to use
+image:
+  file: .gitpod.Dockerfile
+
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  # before is run at pre-build stage
+  - init: yarn install
+    # command is run only when gitpod workspace is opening, not on pre-build
+    # Should be in command some run:watch or alike
+    # command: echo 'start script'
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 4200 # default Angular port
+    onOpen: open-browser
+
+github:
+  prebuilds:
+    # enable for the default branch (defaults to true)
+    master: true
+    # enable for all branches in this repo (defaults to false)
+    branches: false
+    # enable for pull requests coming from this repo (defaults to true)
+    pullRequests: false
+    # enable for pull requests coming from forks (defaults to false)
+    pullRequestsFromForks: false
+    # add a check to pull requests (defaults to true)
+    addCheck: false
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
+    addComment: false
+    # add a "Review in Gitpod" button to the pull request's description (defaults to false)
+    addBadge: false
+
+vscode:
+  extensions:
+    - coenraads.bracket-pair-colorizer # color brackets
+    - angular.ng-template # Ng template understanding, pay attention to perf impact
+    - vtrois.gitmoji-vscode # gitmoji helper for commit messages
